@@ -25,4 +25,5 @@ spec:
       volumes:
         - name: site
           configMap:
-            name: static-site
+
+            name: static-site 
