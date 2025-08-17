@@ -21,7 +21,7 @@ kubectl create namespace web
 
 # 1) Prepare your static site
 
-Create a folder for your site (example content shown):
+Create a folder for your site:
 
 ```
 site/
@@ -40,7 +40,7 @@ site/
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <h1>Hello from Kubernetes 🚀</h1>
+  <h1>Hello from Kubernetes </h1>
   <p>If you see this, your static site is live.</p>
 </body>
 </html>
@@ -57,18 +57,10 @@ h1 { font-size: 2rem; }
 
 # 2) Create a ConfigMap from your files
 
-This loads each file into a ConfigMap (one key per file). It’s perfect for small sites and demos.
+This loads each file into a ConfigMap. It’s perfect for small sites and demos.
 
 ```bash
 kubectl -n web create configmap static-site --from-file=site/
-```
-
-(If you prefer YAML in git, generate it once:)
-
-```bash
-kubectl -n web create configmap static-site --from-file=site/ \
-  --dry-run=client -o yaml > 01-configmap.yaml
-kubectl apply -f 01-configmap.yaml
 ```
 
 ---
